@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker run -i --rm httpd:latest apachectl configtest
+      #run: docker run -i --rm httpd:latest apachectl configtest
+      run: docker run -i --rm -v ${PWD}/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf  httpd:latest apachectl configtest
+
